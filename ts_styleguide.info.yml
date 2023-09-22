@@ -1,0 +1,6 @@
+name: 'Thinkshout Styleguide'
+type: module
+description: 'Enables a styleguide at /styleguide for dev & test environments'
+core_version_requirement: '^9 || ^10'
+package: ThinkShout
+dependencies: {  }
