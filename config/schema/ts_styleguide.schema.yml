@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Thinkshout Styleguide module.
+ts_styleguide.settings:
+  type: config_object
+  label: 'Thinkshout Styleguide settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enable'

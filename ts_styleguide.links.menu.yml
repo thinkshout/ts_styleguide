@@ -1,0 +1,5 @@
+ts_styleguide.settings:
+  title: TS Styleguide Settings
+  parent: system.admin_config_development
+  route_name: ts_styleguide.settings
+  weight: 10

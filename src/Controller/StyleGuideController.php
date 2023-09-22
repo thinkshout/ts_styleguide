@@ -60,8 +60,8 @@ class StyleGuideController extends ControllerBase {
    *   The access result.
    */
   public function tsStyleGuideAccess() {
-    $is_pantheon_live = isset($_ENV['PANTHEON_ENVIRONMENT']) && $_ENV['PANTHEON_ENVIRONMENT'] == 'live';
-    return AccessResult::allowedIf(!$is_pantheon_live);
+    $enabled = $this->configFactory->get('ts_styleguide.settings')->get('enable');
+    return AccessResult::allowedIf($enabled);
   }
 
 }

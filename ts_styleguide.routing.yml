@@ -13,3 +13,11 @@ ts_styleguide.ts_styleguide:
     _title: 'TS Style Guide'
   requirements:
     _custom_access: 'Drupal\ts_styleguide\Controller\StyleGuideController::tsStyleGuideAccess'
+
+ts_styleguide.settings:
+  path: '/admin/config/development/ts-styleguide'
+  defaults:
+    _title: 'TS Styleguide Settings'
+    _form: 'Drupal\ts_styleguide\Form\TSStyleGuideForm'
+  requirements:
+    _permission: 'administer site configuration'
