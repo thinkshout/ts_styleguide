@@ -1,6 +1,12 @@
 {
     "name": "thinkshout/ts_styleguide",
     "description": "Adds a simple styleguide module to your site.",
-    "type": "project",
-    "license": "MIT"
+    "license": "MIT",
+    "type": "drupal-module",
+    "homepage": "https://github.com/thinkshout/ts_styleguide",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://github.com/thinkshout/ts_styleguide/issues",
+        "source": "https://github.com/thinkshout/ts_styleguide"
+    }
 }
