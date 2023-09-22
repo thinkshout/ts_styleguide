@@ -60,7 +60,7 @@ class StyleGuideController extends ControllerBase {
    *   The access result.
    */
   public function tsStyleGuideAccess() {
-    $enabled = $this->configFactory->get('ts_styleguide.settings')->get('enable');
+    $enabled = $this->configFactory->get('ts_styleguide.settings')->get('enabled');
     return AccessResult::allowedIf($enabled);
   }
 
