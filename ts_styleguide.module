@@ -8,6 +8,8 @@ function ts_styleguide_theme() {
     'styleguide' => [
       'variables' => [
         'theme_name' => NULL,
+        'ts_molecules' => [],
+        'ts_blocks' => [],
       ],
     ],
   ];
