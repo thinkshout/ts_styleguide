@@ -4,14 +4,19 @@ namespace Drupal\ts_styleguide\Controller;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Component\Utility\Xss;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Twig\Error\LoaderError;
 
 /**
  * Creates style guide at /styleguide.
  */
 class StyleGuideController extends ControllerBase {
+
+  /**
+   * The Library discovery service.
+   *
+   * @var \Drupal\Core\Asset\LibraryDiscoveryCollector
+   */
+  protected $libraries;
 
   /**
    * The theme manager.
@@ -21,20 +26,13 @@ class StyleGuideController extends ControllerBase {
   protected $themeManager;
 
   /**
-   * The twig service.
-   *
-   * @var \Drupal\Core\Template\TwigEnvironment
-   */
-  protected $twig;
-
-  /**
    * {@inheritDoc}
    */
   public static function create(ContainerInterface $container) {
     $instance = parent::create($container);
     $instance->configFactory = $container->get('config.factory');
+    $instance->libraries = $container->get('library.discovery');
     $instance->themeManager = $container->get('theme.manager');
-    $instance->twig = $container->get('twig');
     return $instance;
   }
 
@@ -46,11 +44,14 @@ class StyleGuideController extends ControllerBase {
    */
   public function tsStyleGuide() {
     $themename = $this->configFactory->get('system.theme')->get('default');
-
-    return [
+    $content = [
       '#theme' => 'styleguide',
       '#theme_name' => $themename,
     ];
+    if ($this->libraries->getLibraryByName($themename, 'ts_styleguide')) {
+      $content['#attached']['library'][] = "$themename/ts_styleguide";
+    }
+    return $content;
   }
 
   /**
